@@ -2,7 +2,7 @@ import { IPair } from "./IPair";
 import { IComparable } from "../functional/IComparable";
 
 import { hash } from "../functional/hash";
-import { less as less_fn, equal_to } from "../functional/comparisons";
+import { less as less_fn, equal_to } from "../functional/comparators";
 
 /**
  * Pair of two elements.
@@ -70,3 +70,17 @@ export class Pair<First, Second>
 
 export type pair<First, Second> = Pair<First, Second>;
 export const pair = Pair;
+
+/**
+ * Create a {@link Pair}.
+ * 
+ * @param first The 1st element.
+ * @param second The 2nd element.
+ * 
+ * @return A {@link Pair} object.
+ */
+export function make_pair<First, Second>
+	(first: First, second: Second): Pair<First, Second>
+{
+	return new Pair<First, Second>(first, second);
+}
